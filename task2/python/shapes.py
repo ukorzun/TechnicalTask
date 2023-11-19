@@ -1,5 +1,4 @@
-from abc import abstractmethod
-
+from abc import ABC, abstractmethod
 
 class Engine2D:
 
@@ -20,7 +19,7 @@ class Engine2D:
         self.canvas.clear()
 
 
-class Shape:
+class Shape(ABC):
 
     @abstractmethod
     def draw(self, color):
@@ -31,43 +30,31 @@ class Shape:
         pass
 
     def __eq__(self, other):
-        return self.__dict__ == other.__dict__
-
+        return (type(self) == type(other)) and (self.__dict__ == other.__dict__)
 
 class Rectangle(Shape):
     def __init__(self, x, y, width, height):
-        self.x = x
-        self.y = y
-        self.width = width
-        self.height = height
+        self.x, self.y, self.width, self.height = x, y, width, height
 
     def draw(self, color):
-        print(
-            f"Drawing Rectangle: ({self.x}, {self.y}) with width {self.width} and height {self.height} in {color} color")
+        print(f"Drawing Rectangle: ({self.x}, {self.y}) with width {self.width} and height {self.height} in {color} color")
 
     def __str__(self):
         return f"Rectangle: ({self.x}, {self.y}) with width {self.width} and height {self.height}"
 
-
 class Triangle(Shape):
     def __init__(self, x1, y1, x2, y2, x3, y3):
-        self.x1, self.y1 = x1, y1
-        self.x2, self.y2 = x2, y2
-        self.x3, self.y3 = x3, y3
+        self.x1, self.y1, self.x2, self.y2, self.x3, self.y3 = x1, y1, x2, y2, x3, y3
 
     def draw(self, color):
-        print(
-            f"Drawing Triangle: ({self.x1}, {self.y1}), ({self.x2}, {self.y2}), ({self.x3}, {self.y3}) in {color} color")
+        print(f"Drawing Triangle: ({self.x1}, {self.y1}), ({self.x2}, {self.y2}), ({self.x3}, {self.y3}) in {color} color")
 
     def __str__(self):
         return f"Triangle: ({self.x1}, {self.y1}), ({self.x2}, {self.y2}), ({self.x3}, {self.y3})"
 
-
 class Circle(Shape):
     def __init__(self, x, y, radius):
-        self.x = x
-        self.y = y
-        self.radius = radius
+        self.x, self.y, self.radius = x, y, radius
 
     def draw(self, color):
         print(f"Drawing Circle: ({self.x}, {self.y}) with radius {self.radius} in {color} color")
