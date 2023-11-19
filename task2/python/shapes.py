@@ -30,6 +30,10 @@ class Shape:
     def __str__(self):
         pass
 
+    def __eq__(self, other):
+        return self.__dict__ == other.__dict__
+
+
 class Rectangle(Shape):
     def __init__(self, x, y, width, height):
         self.x = x
@@ -40,6 +44,9 @@ class Rectangle(Shape):
     def draw(self, color):
         print(
             f"Drawing Rectangle: ({self.x}, {self.y}) with width {self.width} and height {self.height} in {color} color")
+
+    def __str__(self):
+        return f"Rectangle: ({self.x}, {self.y}) with width {self.width} and height {self.height}"
 
 
 class Triangle(Shape):
@@ -52,6 +59,9 @@ class Triangle(Shape):
         print(
             f"Drawing Triangle: ({self.x1}, {self.y1}), ({self.x2}, {self.y2}), ({self.x3}, {self.y3}) in {color} color")
 
+    def __str__(self):
+        return f"Triangle: ({self.x1}, {self.y1}), ({self.x2}, {self.y2}), ({self.x3}, {self.y3})"
+
 
 class Circle(Shape):
     def __init__(self, x, y, radius):
@@ -61,3 +71,6 @@ class Circle(Shape):
 
     def draw(self, color):
         print(f"Drawing Circle: ({self.x}, {self.y}) with radius {self.radius} in {color} color")
+
+    def __str__(self):
+        return f"Circle: ({self.x}, {self.y}) with radius {self.radius}"
