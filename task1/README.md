@@ -15,7 +15,7 @@ python version: 3.9.8
 ```bash
 pip install -r requirements.txt
 
-if the selenium has not been set ->  pip install selenium 
+if the selenium has not been set ->  pip install selenium {must have the latest version of Selenium webdriver}
 
 
 ## To run tests use
