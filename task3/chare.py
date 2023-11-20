@@ -46,21 +46,22 @@ def find_shortest_path(field, start, end):
 
 def main():
     try:
-        rows = int(input("Введите количество строк поля (M): "))
-        cols = int(input("Введите количество столбцов поля (N): "))
-        start = tuple(int(input(f"Введите координату {coord} начальной точки A: ")) for coord in ('X', 'Y'))
-        end = tuple(int(input(f"Введите координату {coord} конечной точки B: ")) for coord in ('X', 'Y'))
+        rows = int(input("Enter the number of rows in the field (M): "))
+        cols = int(input("Enter the number of columns in the field (N): "))
+        start = tuple(int(input(f"Enter the coordinate {coord} of the starting point A: ")) for coord in ('X', 'Y'))
+        end = tuple(int(input(f"Enter the coordinate {coord} of the ending point B: ")) for coord in ('X', 'Y'))
     except ValueError:
-        print("Пожалуйста, введите целые числа.")
+        print("Please enter integers.")
         return
 
     field = generate_random_field(rows, cols)
-    print("\nСгенерированное поле:")
+    print("\nGenerated field:")
     print_field(field)
 
     path = find_shortest_path(field, start, end)
 
-    print(f"\nКратчайший путь от {start} до {end}: {path}" if path else "\nПуть не найден.")
+    print(f"\nShortest path from {start} to {end}: {path}" if path else "\nPath not found.")
+
 
 if __name__ == '__main__':
     main()

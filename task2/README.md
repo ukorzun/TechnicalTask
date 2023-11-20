@@ -12,7 +12,6 @@
 
 
 
-## Для запусвка тестов используйте 
+## To run tests use
 
-
-pytest -s -v
+Use Python 3.9.8 to run tests

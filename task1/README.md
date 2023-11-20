@@ -9,16 +9,15 @@
 При реализации теста необходимо учитывать, что данные из этой таблицы могут понадобиться и в других тестах. Будет плюсом реализовать хранение данных из таблицы в виде датаклассов. 
 
 
-## Установка
-
-Для установки зависимостей выполните следующую команду:
-
+## Precondition
+To install dependencies, run the following command:
+python version: 3.9.8
 ```bash
 pip install -r requirements.txt
 
+if the selenium has not been set ->  pip install selenium 
 
 
-## Для запусвка тестов используйте 
-
+## To run tests use
 
 pytest -s -v
