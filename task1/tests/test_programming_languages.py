@@ -14,7 +14,7 @@ class TestUniqueVisitors:
 
             websites_info = wikipedia_page.extract_table_data()
             errors = self.check_popularity_threshold(websites_info, popularity_threshold)
-
+            # 3 out of 7 will fail and display an error because they do not meet the "unique visitors per month condition. Expected more than"
             if errors:
                 for error in errors:
                     print(error)
@@ -28,7 +28,6 @@ class TestUniqueVisitors:
             frontend = website_info.get('frontend')
             backend = website_info.get('backend')
             popularity = self.clean_numeric_string(website_info.get('popularity'))
-
             if popularity is not None and popularity < popularity_threshold:
                 error_message = f"{website_name} (Frontend:{frontend}|Backend:{backend}) has {popularity} unique visitors per month. (Expected more than {popularity_threshold})"
                 formatted_errors.append(error_message)
